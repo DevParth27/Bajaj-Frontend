@@ -79,7 +79,9 @@
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
   background-color: #f9fafb;
+  color: #000; /* ✅ USER TEXT WILL BE BLACK */
 }
+
 
 .qa-form input:focus,
 .qa-form textarea:focus {
