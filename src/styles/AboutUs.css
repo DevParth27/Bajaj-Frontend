@@ -263,8 +263,8 @@
   padding: 1rem 2rem;
   font-size: var(--text-lg);
   font-weight: 700;
-  background-color: white;
-  color: var(--primary-color);
+  background-color: #000000; /* Black */
+  color: #ffffff; /* White text */
   text-decoration: none;
   border-radius: var(--radius-full);
   transition: all var(--transition-base);
@@ -274,8 +274,9 @@
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-xl);
-  background-color: var(--background-alt);
+  background-color: #1a1a1a; /* Slightly lighter black on hover */
 }
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {

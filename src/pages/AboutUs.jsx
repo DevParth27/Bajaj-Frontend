@@ -1,9 +1,6 @@
 import React from 'react';
 import '../styles/AboutUs.css';
 
-/**
- * About Us Page Component
- */
 const AboutUs = () => {
   return (
     <div className="about-page">
@@ -21,17 +18,16 @@ const AboutUs = () => {
         {/* Mission Section */}
         <section className="about-section">
           <div className="section-content">
-            <h2 className="section-title">🎯 Our Mission</h2>
+            <h2 className="section-title">Our Mission</h2>
             <p className="section-text">
-              CLAIRE.AI (Clause-Aware Intelligent Retrieval Engine) is designed to solve one of the most 
-              time-consuming challenges in the modern workplace: navigating complex policy documents, 
-              insurance policies, and legal documents. Our mission is to democratize access to information 
-              by providing instant, accurate answers to user queries from diverse document formats.
+              CLAIRE.AI (Clause-Aware Intelligent Retrieval Engine) is built to solve one of the most 
+              time-consuming challenges in the modern workplace — navigating complex policy documents, 
+              insurance papers, and legal content. Our mission is to make access to information 
+              simple, intelligent, and universally available.
             </p>
             <p className="section-text">
-              We believe that everyone should have the ability to quickly understand and extract insights 
-              from complex documents without requiring domain expertise or spending hours reading through 
-              lengthy materials.
+              We empower professionals and organizations to extract meaningful insights from large, 
+              complex documents — without requiring domain expertise or hours of manual reading.
             </p>
           </div>
         </section>
@@ -39,21 +35,21 @@ const AboutUs = () => {
         {/* Problem Statement */}
         <section className="about-section highlight-section">
           <div className="section-content">
-            <h2 className="section-title">❗ The Problem We Solve</h2>
+            <h2 className="section-title">The Problem We Solve</h2>
             <p className="section-text">
-              Navigating complex policy documents, insurance policies, and legal documents is time-consuming 
-              and often requires domain expertise. Traditional methods of finding information involve:
+              Understanding and retrieving information from detailed documents is a slow, 
+              expertise-driven process. Traditional methods often involve:
             </p>
             <ul className="problem-list">
-              <li>Reading through hundreds of pages of dense documentation</li>
-              <li>Searching with limited keyword matching capabilities</li>
-              <li>Consulting with expensive subject matter experts</li>
-              <li>Dealing with multiple document formats and structures</li>
-              <li>Language barriers and technical jargon</li>
+              <li>Reading through hundreds of pages of documentation</li>
+              <li>Relying on limited keyword-based search tools</li>
+              <li>Seeking help from subject matter experts</li>
+              <li>Dealing with multiple formats and inconsistent structures</li>
+              <li>Overcoming technical or language barriers</li>
             </ul>
             <p className="section-text">
-              CLAIRE.AI eliminates these barriers by using advanced AI to understand context, extract 
-              relevant information, and provide clear, accurate answers in seconds.
+              CLAIRE.AI simplifies this by leveraging advanced AI to interpret context, 
+              extract relevant data, and deliver clear, actionable answers within seconds.
             </p>
           </div>
         </section>
@@ -61,41 +57,37 @@ const AboutUs = () => {
         {/* Technology Section */}
         <section className="about-section">
           <div className="section-content">
-            <h2 className="section-title">🔬 Our Technology</h2>
+            <h2 className="section-title">Our Technology</h2>
             <div className="tech-grid">
               <div className="tech-card">
-                <div className="tech-icon">🤖</div>
                 <h3 className="tech-title">Google Gemini 2.5 Flash</h3>
                 <p className="tech-description">
-                  State-of-the-art AI model providing lightning-fast processing and high-accuracy responses 
-                  with advanced reasoning capabilities.
+                  A cutting-edge AI model offering fast, accurate, and context-aware processing 
+                  for complex document queries.
                 </p>
               </div>
 
               <div className="tech-card">
-                <div className="tech-icon">📊</div>
                 <h3 className="tech-title">Enhanced RAG Pipeline</h3>
                 <p className="tech-description">
-                  Retrieval-Augmented Generation with intelligent chunking, context compression, and 
-                  optimized vector embeddings for maximum accuracy.
+                  A retrieval-augmented generation system that uses intelligent chunking, 
+                  compression, and optimized vector embeddings to improve precision.
                 </p>
               </div>
 
               <div className="tech-card">
-                <div className="tech-icon">⚡</div>
                 <h3 className="tech-title">Performance Optimization</h3>
                 <p className="tech-description">
-                  Async processing, vector caching, and rate limiting ensure fast responses while 
-                  maintaining system stability and reliability.
+                  Advanced caching, asynchronous execution, and dynamic scaling ensure 
+                  speed and reliability at every stage.
                 </p>
               </div>
 
               <div className="tech-card">
-                <div className="tech-icon">🛡️</div>
-                <h3 className="tech-title">Enterprise Security</h3>
+                <h3 className="tech-title">Enterprise-Grade Security</h3>
                 <p className="tech-description">
-                  Bearer token authentication, input sanitization, CORS support, and secure credential 
-                  management protect your data at every step.
+                  Token-based authentication, strict data policies, and secure credential 
+                  management protect your information throughout the pipeline.
                 </p>
               </div>
             </div>
@@ -105,35 +97,36 @@ const AboutUs = () => {
         {/* Architecture Section */}
         <section className="about-section highlight-section">
           <div className="section-content">
-            <h2 className="section-title">🏗️ System Architecture</h2>
+            <h2 className="section-title">System Architecture</h2>
             <p className="section-text">
-              CLAIRE.AI is built on a robust, scalable architecture that ensures reliability and performance:
+              CLAIRE.AI is powered by a modular and scalable architecture that ensures reliability, 
+              performance, and security.
             </p>
             
             <div className="architecture-diagram">
               <div className="architecture-layer">
                 <h4>Presentation Layer</h4>
-                <p>React Frontend with responsive design and real-time updates</p>
+                <p>React-based interface for a seamless, responsive user experience</p>
               </div>
               <div className="architecture-arrow">↓</div>
               <div className="architecture-layer">
                 <h4>API Layer</h4>
-                <p>FastAPI with JWT authentication and rate limiting</p>
+                <p>FastAPI with JWT authentication and request throttling</p>
               </div>
               <div className="architecture-arrow">↓</div>
               <div className="architecture-layer">
                 <h4>Processing Layer</h4>
-                <p>Document processor with multi-format support and metadata extraction</p>
+                <p>Document parser supporting multi-format ingestion and metadata extraction</p>
               </div>
               <div className="architecture-arrow">↓</div>
               <div className="architecture-layer">
                 <h4>AI Layer</h4>
-                <p>Google Gemini 2.5 Flash with enhanced RAG pipeline</p>
+                <p>Google Gemini 2.5 Flash with advanced RAG integration</p>
               </div>
               <div className="architecture-arrow">↓</div>
               <div className="architecture-layer">
                 <h4>Data Layer</h4>
-                <p>Vector store with embedding cache and content validation</p>
+                <p>Vector database with optimized embedding cache and validation</p>
               </div>
             </div>
           </div>
@@ -142,71 +135,66 @@ const AboutUs = () => {
         {/* Capabilities Section */}
         <section className="about-section">
           <div className="section-content">
-            <h2 className="section-title">✨ Key Capabilities</h2>
+            <h2 className="section-title">Key Capabilities</h2>
             <div className="capabilities-grid">
               <div className="capability-item">
-                <span className="capability-icon">📄</span>
                 <div className="capability-content">
                   <h4>Multi-Format Support</h4>
-                  <p>PDF, Word, PowerPoint, Excel, CSV, and text files</p>
+                  <p>Handles PDFs, Word, Excel, PowerPoint, CSV, and plain text documents.</p>
                 </div>
               </div>
 
               <div className="capability-item">
-                <span className="capability-icon">🌍</span>
                 <div className="capability-content">
-                  <h4>20+ Languages</h4>
-                  <p>English, Spanish, French, German, Hindi, Arabic, and more</p>
+                  <h4>Global Language Coverage</h4>
+                  <p>Supports 20+ languages including English, Hindi, Spanish, and Arabic.</p>
                 </div>
               </div>
 
               <div className="capability-item">
-                <span className="capability-icon">🔗</span>
                 <div className="capability-content">
                   <h4>URL-Based Ingestion</h4>
-                  <p>Process documents directly from web URLs</p>
+                  <p>Extracts and processes documents directly from online sources.</p>
                 </div>
               </div>
 
               <div className="capability-item">
-                <span className="capability-icon">🎯</span>
                 <div className="capability-content">
                   <h4>High Accuracy</h4>
-                  <p>Built-in hallucination detection and quality assessment</p>
+                  <p>Contextual search with hallucination detection and confidence scoring.</p>
                 </div>
               </div>
 
               <div className="capability-item">
-                <span className="capability-icon">⏱️</span>
                 <div className="capability-content">
-                  <h4>Real-Time Processing</h4>
-                  <p>Get answers in seconds, not hours</p>
+                  <h4>Real-Time Responses</h4>
+                  <p>Delivers accurate document-based answers within seconds.</p>
                 </div>
               </div>
 
               <div className="capability-item">
-                <span className="capability-icon">📈</span>
                 <div className="capability-content">
                   <h4>Scalable Infrastructure</h4>
-                  <p>Handles multiple concurrent requests efficiently</p>
+                  <p>Supports multiple concurrent users and large-scale document sets.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Team Section */}
+        {/* Vision Section */}
         <section className="about-section">
           <div className="section-content">
-            <h2 className="section-title">👥 Our Vision</h2>
+            <h2 className="section-title">Our Vision</h2>
             <p className="section-text">
-              We envision a world where complex information is accessible to everyone. Where understanding 
-              legal documents, policy papers, and technical materials doesn't require years of training 
-              or expensive consultants.
+              We aim to create a world where information is truly accessible — 
+              where every professional can instantly understand policies, legal documents, 
+              and research materials without friction.
             </p>
             <p className="section-text">
-              CLAIRE.AI is just the beginning. We're continuously improving our technology, expanding 
-              our capabilities, and working towards making information truly universal and accessible.
+              CLAIRE.AI is an evolving platform. We are continuously enhancing our models, 
+              refining precision, and expanding to new domains to make knowledge retrieval 
+              seamless and inclusive.
             </p>
           </div>
         </section>
@@ -216,7 +204,7 @@ const AboutUs = () => {
           <div className="cta-content">
             <h2 className="cta-title">Ready to Get Started?</h2>
             <p className="cta-text">
-              Experience the power of intelligent document analysis today
+              Experience intelligent document analysis that empowers your workflow.
             </p>
             <a href="/" className="cta-button">
               Try CLAIRE.AI Now →

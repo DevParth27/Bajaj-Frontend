@@ -1,5 +1,5 @@
 /* ===========================================================
-   HOME CONTAINER — Professional Laptop Layout
+   HOME CONTAINER — Clean Developer Dashboard Aesthetic
    =========================================================== */
 .home-container {
   min-height: 100vh;
@@ -7,8 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  background: #f9fafb;
   font-family: "Inter", system-ui, sans-serif;
+  color: #111827;
 }
 
 /* ===========================================================
@@ -16,21 +17,21 @@
    =========================================================== */
 .hero-section {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   animation: fadeIn 0.8s ease-out forwards;
 }
 
 .hero-section h1 {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #111827;
+  color: #0f172a;
   margin-bottom: 0.75rem;
   letter-spacing: -0.5px;
 }
 
 .hero-section p {
   font-size: 1.125rem;
-  color: #4b5563;
+  color: #475569;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.7;
@@ -41,7 +42,7 @@
    =========================================================== */
 .form-and-results-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1150px;
   display: flex;
   gap: 2rem;
   align-items: flex-start;
@@ -55,14 +56,15 @@
   flex: 1;
   background: #ffffff;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   border: 1px solid #e5e7eb;
-  transition: transform 0.3s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .qa-form-container:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .qa-form {
@@ -71,46 +73,56 @@
   gap: 1.25rem;
 }
 
-.qa-form input,
-.qa-form textarea {
-  padding: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  background-color: #f9fafb;
-  color: #000; /* ✅ USER TEXT WILL BE BLACK */
+.qa-form label {
+  font-weight: 600;
+  color: #1e293b;
 }
 
+.qa-form input,
+.qa-form textarea {
+  padding: 0.9rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #000;
+  background-color: #f8fafc;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.qa-form input::placeholder,
+.qa-form textarea::placeholder {
+  color: #9ca3af;
+}
 
 .qa-form input:focus,
 .qa-form textarea:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .qa-form textarea {
-  min-height: 180px;
+  min-height: 160px;
   resize: vertical;
 }
 
 .qa-form button {
-  padding: 1rem;
-  background: linear-gradient(90deg, #4f46e5, #10b981);
-  color: #ffffff;
+  padding: 0.9rem;
+  background: #2563eb;
+  color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .qa-form button:hover {
-  opacity: 0.95;
+  background: #1e40af;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(79, 70, 229, 0.25);
 }
 
 /* ===========================================================
@@ -120,21 +132,22 @@
   flex: 1;
   background: #ffffff;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
   border: 1px solid #e5e7eb;
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .results-container:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .results-container h2 {
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 0.75rem;
   margin-bottom: 1.5rem;
-  color: #111827;
+  color: #0f172a;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -146,23 +159,23 @@
 }
 
 .results-container li {
-  background: #f9fafb;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .results-container li:hover {
-  background: #f3f4f6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: #f1f5f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .results-container li p {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  color: #374151;
+  color: #334155;
   line-height: 1.6;
 }
 
