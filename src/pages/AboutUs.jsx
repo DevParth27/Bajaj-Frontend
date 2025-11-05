@@ -8,49 +8,69 @@ const AboutUs = () => {
         {/* Hero Section */}
         <div className="about-hero">
           <h1 className="about-title">
-            About <span className="gradient-text">CLAIRE.AI</span>
+            About CLAIRE.AI
           </h1>
           <p className="about-subtitle">
             Democratizing Access to Information Through Intelligent Document Analysis
           </p>
         </div>
 
-        {/* Mission Section */}
+        {/* Mission Section with Image Right */}
         <section className="about-section">
-          <div className="section-content">
-            <h2 className="section-title">Our Mission</h2>
-            <p className="section-text">
-              CLAIRE.AI (Clause-Aware Intelligent Retrieval Engine) is built to solve one of the most 
-              time-consuming challenges in the modern workplace — navigating complex policy documents, 
-              insurance papers, and legal content. Our mission is to make access to information 
-              simple, intelligent, and universally available.
-            </p>
-            <p className="section-text">
-              We empower professionals and organizations to extract meaningful insights from large, 
-              complex documents — without requiring domain expertise or hours of manual reading.
-            </p>
+          <div className="section-content-with-image image-right">
+            <div className="text-column">
+              <h2 className="section-title">Our Mission</h2>
+              <p className="section-text">
+                CLAIRE.AI (Clause-Aware Intelligent Retrieval Engine) is built to solve one of the most 
+                time-consuming challenges in the modern workplace — navigating complex policy documents, 
+                insurance papers, and legal content. Our mission is to make access to information 
+                simple, intelligent, and universally available.
+              </p>
+              <p className="section-text">
+                We empower professionals and organizations to extract meaningful insights from large, 
+                complex documents — without requiring domain expertise or hours of manual reading.
+              </p>
+            </div>
+            <div className="image-column">
+              {/* Replace src with your image path */}
+              <img 
+                src="/src/images/Pic1.png" 
+                alt="Mission illustration" 
+                className="section-image"
+              />
+            </div>
           </div>
         </section>
 
-        {/* Problem Statement */}
+        {/* Problem Statement with Image Left */}
         <section className="about-section highlight-section">
-          <div className="section-content">
-            <h2 className="section-title">The Problem We Solve</h2>
-            <p className="section-text">
-              Understanding and retrieving information from detailed documents is a slow, 
-              expertise-driven process. Traditional methods often involve:
-            </p>
-            <ul className="problem-list">
-              <li>Reading through hundreds of pages of documentation</li>
-              <li>Relying on limited keyword-based search tools</li>
-              <li>Seeking help from subject matter experts</li>
-              <li>Dealing with multiple formats and inconsistent structures</li>
-              <li>Overcoming technical or language barriers</li>
-            </ul>
-            <p className="section-text">
-              CLAIRE.AI simplifies this by leveraging advanced AI to interpret context, 
-              extract relevant data, and deliver clear, actionable answers within seconds.
-            </p>
+          <div className="section-content-with-image image-left">
+            <div className="image-column">
+              {/* Replace src with your image path */}
+              <img 
+                src="/src/images/Pic2.png" 
+                alt="Problem solving illustration" 
+                className="section-image"
+              />
+            </div>
+            <div className="text-column">
+              <h2 className="section-title">The Problem We Solve</h2>
+              <p className="section-text">
+                Understanding and retrieving information from detailed documents is a slow, 
+                expertise-driven process. Traditional methods often involve:
+              </p>
+              <ul className="problem-list">
+                <li>Reading through hundreds of pages of documentation</li>
+                <li>Relying on limited keyword-based search tools</li>
+                <li>Seeking help from subject matter experts</li>
+                <li>Dealing with multiple formats and inconsistent structures</li>
+                <li>Overcoming technical or language barriers</li>
+              </ul>
+              <p className="section-text">
+                CLAIRE.AI simplifies this by leveraging advanced AI to interpret context, 
+                extract relevant data, and deliver clear, actionable answers within seconds.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -94,7 +114,7 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Architecture Section */}
+        {/* Architecture Section with Center Image */}
         <section className="about-section highlight-section">
           <div className="section-content">
             <h2 className="section-title">System Architecture</h2>
@@ -103,6 +123,15 @@ const AboutUs = () => {
               performance, and security.
             </p>
             
+            {/* Replace src with your architecture diagram image */}
+            <div className="centered-image-container">
+              <img 
+                src="/src/images/Pic3.png" 
+                alt="System Architecture Diagram" 
+                className="architecture-image"
+              />
+            </div>
+
             <div className="architecture-diagram">
               <div className="architecture-layer">
                 <h4>Presentation Layer</h4>
@@ -132,70 +161,90 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Capabilities Section */}
+        {/* Capabilities Section with Image Right */}
         <section className="about-section">
-          <div className="section-content">
-            <h2 className="section-title">Key Capabilities</h2>
-            <div className="capabilities-grid">
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>Multi-Format Support</h4>
-                  <p>Handles PDFs, Word, Excel, PowerPoint, CSV, and plain text documents.</p>
+          <div className="section-content-with-image image-right">
+            <div className="text-column">
+              <h2 className="section-title">Key Capabilities</h2>
+              <div className="capabilities-grid">
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>Multi-Format Support</h4>
+                    <p>Handles PDFs, Word, Excel, PowerPoint, CSV, and plain text documents.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>Global Language Coverage</h4>
-                  <p>Supports 20+ languages including English, Hindi, Spanish, and Arabic.</p>
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>Global Language Coverage</h4>
+                    <p>Supports 20+ languages including English, Hindi, Spanish, and Arabic.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>URL-Based Ingestion</h4>
-                  <p>Extracts and processes documents directly from online sources.</p>
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>URL-Based Ingestion</h4>
+                    <p>Extracts and processes documents directly from online sources.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>High Accuracy</h4>
-                  <p>Contextual search with hallucination detection and confidence scoring.</p>
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>High Accuracy</h4>
+                    <p>Contextual search with hallucination detection and confidence scoring.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>Real-Time Responses</h4>
-                  <p>Delivers accurate document-based answers within seconds.</p>
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>Real-Time Responses</h4>
+                    <p>Delivers accurate document-based answers within seconds.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="capability-item">
-                <div className="capability-content">
-                  <h4>Scalable Infrastructure</h4>
-                  <p>Supports multiple concurrent users and large-scale document sets.</p>
+                <div className="capability-item">
+                  <div className="capability-content">
+                    <h4>Scalable Infrastructure</h4>
+                    <p>Supports multiple concurrent users and large-scale document sets.</p>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div className="image-column">
+              {/* Replace src with your image path */}
+              <img 
+                src="/src/images/Pic4.png" 
+                alt="Capabilities illustration" 
+                className="section-image"
+              />
             </div>
           </div>
         </section>
 
-        {/* Vision Section */}
+        {/* Vision Section with Image Left */}
         <section className="about-section">
-          <div className="section-content">
-            <h2 className="section-title">Our Vision</h2>
-            <p className="section-text">
-              We aim to create a world where information is truly accessible — 
-              where every professional can instantly understand policies, legal documents, 
-              and research materials without friction.
-            </p>
-            <p className="section-text">
-              CLAIRE.AI is an evolving platform. We are continuously enhancing our models, 
-              refining precision, and expanding to new domains to make knowledge retrieval 
-              seamless and inclusive.
-            </p>
+          <div className="section-content-with-image image-left">
+            <div className="image-column">
+              {/* Replace src with your image path */}
+              <img 
+                src="/src/images/Pic5.png" 
+                alt="Vision illustration" 
+                className="section-image"
+              />
+            </div>
+            <div className="text-column">
+              <h2 className="section-title">Our Vision</h2>
+              <p className="section-text">
+                We aim to create a world where information is truly accessible — 
+                where every professional can instantly understand policies, legal documents, 
+                and research materials without friction.
+              </p>
+              <p className="section-text">
+                CLAIRE.AI is an evolving platform. We are continuously enhancing our models, 
+                refining precision, and expanding to new domains to make knowledge retrieval 
+                seamless and inclusive.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -207,7 +256,7 @@ const AboutUs = () => {
               Experience intelligent document analysis that empowers your workflow.
             </p>
             <a href="/" className="cta-button">
-              Try CLAIRE.AI Now →
+              Try CLAIRE.AI Now
             </a>
           </div>
         </section>
