@@ -8,6 +8,7 @@ const Home = () => {
   const [url, setUrl] = useState('');
   const [questions, setQuestions] = useState('');
   const [results, setResults] = useState([]);
+  const [rawResponse, setRawResponse] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -18,14 +19,130 @@ const Home = () => {
     }
     setLoading(true);
     try {
-      const questionArray = questions.split('\n').filter(q => q.trim() !== '');
+      const questionArray = questions
+        .split('\n')
+        .map(q => q.trim())
+        .filter(q => q !== '');
+
       const response = await getAnswers(url, questionArray);
-      setResults(response.data);
+      const payload = response?.data ?? response;
+
+      setRawResponse(payload);
+      setResults(normalizeResults(payload, questionArray));
       toast.success('Answers retrieved successfully!');
     } catch (error) {
       toast.error('An error occurred while fetching answers.');
     }
     setLoading(false);
+  };
+
+  const normalizeResults = (payload, questionsList) => {
+    const pickQuestion = (index) => questionsList[index] || `Question ${index + 1}`;
+
+    const extractItems = (value) => {
+      if (value === undefined || value === null) return [];
+      if (Array.isArray(value)) return value;
+      if (Array.isArray(value.answers)) return value.answers;
+      if (Array.isArray(value.data)) return value.data;
+      if (Array.isArray(value.result)) return value.result;
+      if (Array.isArray(value.output)) return value.output;
+      if (value.items && Array.isArray(value.items)) return value.items;
+
+      if (typeof value === 'object') {
+        if (typeof value.answer === 'string' || typeof value.answer === 'number') {
+          return [value];
+        }
+        const objValues = Object.values(value);
+        if (objValues.length) return objValues;
+      }
+
+      return [value];
+    };
+
+    const toDisplayEntry = (item, index) => {
+      if (item && typeof item === 'object' && !Array.isArray(item)) {
+        const question =
+          item.question ||
+          item.prompt ||
+          item.query ||
+          pickQuestion(index);
+
+        const answer =
+          item.answer ??
+          item.output ??
+          item.response ??
+          (typeof item.text === 'string' ? item.text : JSON.stringify(item));
+
+        return {
+          question,
+          answer: typeof answer === 'string' ? answer : JSON.stringify(answer),
+        };
+      }
+
+      return {
+        question: pickQuestion(index),
+        answer: typeof item === 'string' || typeof item === 'number'
+          ? String(item)
+          : JSON.stringify(item),
+      };
+    };
+
+    return extractItems(payload).map(toDisplayEntry);
+  };
+
+  const renderAnswer = (answer) => {
+    if (answer === undefined || answer === null) return '';
+
+    const stringify = (value) =>
+      typeof value === 'string' ? value : JSON.stringify(value, null, 2);
+
+    const escapeHtml = (value) =>
+      value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+    const formatInline = (value) => {
+      const escaped = escapeHtml(value);
+      const bolded = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      const italicized = bolded.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      return italicized;
+    };
+
+    const lines = stringify(answer).split(/\r?\n/);
+    const htmlParts = [];
+    let listBuffer = [];
+
+    const flushList = () => {
+      if (listBuffer.length) {
+        htmlParts.push(`<ul class="answer-list">${listBuffer.join('')}</ul>`);
+        listBuffer = [];
+      }
+    };
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        flushList();
+        htmlParts.push('<div class="answer-spacer"></div>');
+        return;
+      }
+
+      const bulletMatch = trimmed.match(/^[-*•]\s+(.*)/);
+      if (bulletMatch) {
+        listBuffer.push(`<li>${formatInline(bulletMatch[1])}</li>`);
+        return;
+      }
+
+      flushList();
+      htmlParts.push(`<p class="answer-paragraph">${formatInline(trimmed)}</p>`);
+    });
+
+    flushList();
+    return htmlParts.join('');
   };
 
   return (
@@ -40,7 +157,7 @@ const Home = () => {
 
       {/* Main Form and Results */}
       <div className="form-and-results-container">
-        <div className="qa-form-container">
+        <div className="qa-form-container" id="form">
           <h2 className="form-title">Submit Your Query</h2>
           <form onSubmit={handleSubmit} className="qa-form">
             <div className="form-group">
@@ -66,21 +183,46 @@ const Home = () => {
               {loading ? 'Processing...' : 'Get Answers'}
             </button>
           </form>
-        </div>
 
-        {results.length > 0 && (
-          <div className="results-container">
-            <h2>Your Answers</h2>
-            <ul>
-              {results.map((result, index) => (
-                <li key={index}>
-                  <p><strong>Q:</strong> {result.question}</p>
-                  <p><strong>A:</strong> {result.answer}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+          {(results.length > 0 || rawResponse) && (
+            <div className="answers-card">
+              <div className="answers-header">
+                <h3>Your Answers</h3>
+                {results.length > 0 && (
+                  <span className="answers-count">
+                    {results.length} {results.length === 1 ? 'answer' : 'answers'}
+                  </span>
+                )}
+              </div>
+
+              {results.length > 0 ? (
+                <div className="answers-list">
+                  {results.map((result, index) => (
+                    <article className="answer-item" key={index}>
+                      <header className="answer-question">
+                        <span className="answer-chip">Q{index + 1}</span>
+                        <p>{result.question}</p>
+                      </header>
+                      <div
+                        className="answer-body"
+                        dangerouslySetInnerHTML={{ __html: renderAnswer(result.answer) }}
+                      />
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <p className="answers-empty">No direct answers found in the response.</p>
+              )}
+
+              {rawResponse && (
+                <details className="raw-response">
+                  <summary>View raw response</summary>
+                  <pre>{JSON.stringify(rawResponse, null, 2)}</pre>
+                </details>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Features Section with Image */}
